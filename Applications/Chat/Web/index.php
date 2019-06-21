@@ -155,36 +155,38 @@
   </script>
 </head>
 <body onload="connect();">
-    <div class="container">
+    <div class="container  no-padding-right container-im" style="">
 	    <div class="row clearfix">
 	        <div class="col-md-1 column">
 	        </div>
-	        <div class="col-md-6 column">
+	        <div class="col-md-8 column" style="padding-right: 0;">
 	           <div class="thumbnail">
-	               <div class="caption" id="dialog"></div>
+	               <div class="caption" id="dialog" style=""></div>
+                   <form onsubmit="onSubmit(); return false;">
+                       <select style="" id="client_list">
+                           <option value="all">所有人</option>
+                       </select>
+                       <textarea class="textarea thumbnail" id="textarea"></textarea>
+                       <div class="say-btn">
+                           <input type="button" class="btn btn-default face pull-left" value="表情" />
+                           <input type="submit" class="btn btn-default" value="发表" />
+                       </div>
+                   </form>
+                   <div class="hidden">
+                       &nbsp;&nbsp;&nbsp;&nbsp;<b>房间列表:</b>（当前在&nbsp;房间<?php echo isset($_GET['room_id'])&&intval($_GET['room_id'])>0 ? intval($_GET['room_id']):1; ?>）<br>
+                       &nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=1">房间1</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=2">房间2</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=3">房间3</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=4">房间4</a>
+                       <br><br>
+                   </div>
 	           </div>
-	           <form onsubmit="onSubmit(); return false;">
-	                <select style="margin-bottom:8px" id="client_list">
-                        <option value="all">所有人</option>
-                    </select>
-                    <textarea class="textarea thumbnail" id="textarea"></textarea>
-                    <div class="say-btn">
-                        <input type="button" class="btn btn-default face pull-left" value="表情" />
-                        <input type="submit" class="btn btn-default" value="发表" />
-                    </div>
-               </form>
-               <div>
-               &nbsp;&nbsp;&nbsp;&nbsp;<b>房间列表:</b>（当前在&nbsp;房间<?php echo isset($_GET['room_id'])&&intval($_GET['room_id'])>0 ? intval($_GET['room_id']):1; ?>）<br>
-               &nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=1">房间1</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=2">房间2</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=3">房间3</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?room_id=4">房间4</a>
-               <br><br>
-               </div>
-               <p class="cp">PHP多进程+Websocket(HTML5/Flash)+PHP Socket实时推送技术&nbsp;&nbsp;&nbsp;&nbsp;Powered by <a href="http://www.workerman.net/workerman-chat" target="_blank">workerman-chat</a></p>
+               <p class="cp hidden">PHP多进程+Websocket(HTML5/Flash)+PHP Socket实时推送技术&nbsp;&nbsp;&nbsp;&nbsp;Powered by <a href="http://www.workerman.net/workerman-chat" target="_blank">workerman-chat</a></p>
 	        </div>
-	        <div class="col-md-3 column">
+	        <div class="col-md-2 column no-padding no-margin" style="padding-right: 0">
 	           <div class="thumbnail">
                    <div class="caption" id="userlist"></div>
                </div>
-               <a href="http://workerman.net:8383" target="_blank"><img style="width:252px;margin-left:5px;" src="/img/workerman-todpole.png"></a>
+              <div class="hidden" id="imgwrap">
+                  <a  href="http://workerman.net:8383" target="_blank"><img style="" src="/img/workerman-todpole.png"></a>
+              </div>
 	        </div>
 	    </div>
     </div>
